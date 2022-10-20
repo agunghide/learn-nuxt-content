@@ -5,6 +5,7 @@ module.exports = {
   ],
   content: [
     'components/**/*.{vue,js}',
+    'content/**/*.md',
     'layouts/**/*.vue',
     'pages/**/*.vue',
     'composables/**/*.{js,ts}',
