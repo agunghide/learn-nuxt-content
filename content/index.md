@@ -1,5 +1,5 @@
 ---
-title: Nuxt Content + TailwindCSS Typography
+title: Nuxt Content
 ---
 
 # Hello World!

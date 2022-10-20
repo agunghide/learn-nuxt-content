@@ -7,6 +7,7 @@
 
 <script>
 export default {
+  name: 'IndexPage',
   async asyncData ({ $content, params }) {
     const content = await $content(params.slug || 'index').fetch()
 
