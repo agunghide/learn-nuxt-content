@@ -5,8 +5,19 @@
         prose
         max-w-none
         prose-invert
-        prose-hr:my-3
+        prose-hr:my-4
         prose-headings:mb-3
+        prose-h1:mt-0
+        prose-headings:mt-2
+        prose-table:rounded-lg
+        prose-table:text-white
+        prose-table:bg-white
+        prose-table:bg-opacity-50
+        prose-tr:border-b-white
+        prose-thead:border-b-2
+        prose-thead:border-b-white
+        prose-td:p-4
+        prose-th:p-4
       "
       :document="content"
     />
@@ -27,7 +38,7 @@ export default {
       })
     const [prev, next] = await $content('articles')
       .only(['title', 'slug'])
-      .sortBy('createdAt', 'desc')
+      .sortBy('createdAt', 'asc')
       .surround(params.slug)
       .fetch()
     return {

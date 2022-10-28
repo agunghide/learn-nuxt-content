@@ -1,19 +1,32 @@
 <template>
   <div
-    class="p-5 text-black rounded-md opacity-80"
+    class="p-5 text-white rounded-md bg-opacity-60 flex"
     :class="alertType"
   >
-    <slot>
+    <div
+      v-if="icon"
+      class="mr-3"
+    >
+      {{ icon }}
+    </div>
+    <div
+      v-if="text"
+      class="flex-grow"
+    >
       {{ text }}
-    </slot>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'AlertComponent',
+  name: 'TipsComponent',
   props: {
     text: {
+      type: String,
+      default: ''
+    },
+    icon: {
       type: String,
       default: null
     },
