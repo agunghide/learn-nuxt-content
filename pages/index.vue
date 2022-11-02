@@ -3,11 +3,12 @@
     <h1 class="text-4xl font-bold mb-5 text-white">
       Blog Posts
     </h1>
+    <SearchInput class="mb-3" />
     <ul class="flex flex-col">
       <li
         v-for="article of articles"
         :key="article.slug"
-        class="w-full px-2 mb-6 rounded-lg"
+        class="w-full mb-6 rounded-lg"
       >
         <NuxtLink
           :to="{ name: 'blog-slug', params: { slug: article.slug } }"
