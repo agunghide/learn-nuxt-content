@@ -15,6 +15,7 @@
         >
           <img
             v-if="article.img"
+            width="200"
             class="group-hover:scale-105 transition-transform h-48 xxlmin:w-1/2 xxlmax:w-full object-cover rounded-tl-lg rounded-bl-lg"
             :src="article.img"
           >
@@ -41,7 +42,7 @@ export default {
   name: 'IndexPage',
   async asyncData ({ $content }) {
     const articles = await $content('articles')
-      .sortBy('createdBy', 'asc')
+      .sortBy('createdAt', 'asc')
       .fetch()
 
     return { articles }
