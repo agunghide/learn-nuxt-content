@@ -35,6 +35,22 @@
         </NuxtLink>
       </li>
     </ul>
+    <div>
+      <div class="inline-grid gap-3 grid-flow-col">
+        <div
+          v-for="page in pagination.totalPages"
+          :key="`page-${page}`"
+          class="py-3 px-4 rounded-md cursor-pointer"
+          :class="{
+            'bg-gray-400 pointer-events-none' : pagination.page === page - 1,
+            'bg-white cursor-pointer' : pagination.page !== page - 1
+          }"
+          @click="changePage(page)"
+        >
+          {{ page }}
+        </div>
+      </div>
+    </div>
   </main>
 </template>
 
@@ -42,11 +58,38 @@
 export default {
   name: 'IndexPage',
   async asyncData ({ $content }) {
+    const pagination = {
+      page: 1,
+      perPage: 1,
+      totalPages: 0
+    }
+
     const articles = await $content('articles')
       .sortBy('createdAt', 'asc')
+      .skip(pagination.page - 1)
+      .limit(pagination.perPage)
       .fetch()
 
-    return { articles }
+    const articlesLength = await $content('articles')
+      .fetch()
+
+    pagination.totalPages = articlesLength.length / pagination.perPage
+
+    return {
+      pagination,
+      articles
+    }
+  },
+  methods: {
+    async changePage (page) {
+      this.pagination.page = page - 1
+
+      this.articles = await this.$content('articles')
+        .sortBy('createdAt', 'asc')
+        .skip(this.pagination.page)
+        .limit(this.pagination.perPage)
+        .fetch()
+    }
   }
 }
 </script>
