@@ -8,9 +8,9 @@ author:
 
 # Menulis Konten dengan Nuxt Content
 
-Pada dasarnya nuxt content memiliki pengaturaan bawaan untuk memparsing file `.md` dan `.yaml` yang beraada dalam sebuah folder bernama `content` [^1]
+Pada dasarnya nuxt content memiliki pengaturaan bawaan untuk memparsing file `.md` dan `.yaml` yang berada dalam sebuah folder bernama `content` [^1]
 
-```
+```bash
 ├── content
 │   └── YOUR CONTENT.md
 ├── pages

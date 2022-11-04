@@ -1,7 +1,14 @@
 <template>
   <div class="bg-gray-800 p-10 min-h-[100vh] min-w-full">
+    <NuxtLink
+      class="text-white pb-3"
+      to="/"
+    >
+      &lt;&lt; Back to Home
+    </NuxtLink>
     <nuxt-content
       class="
+        mt-5
         prose
         max-w-none
         prose-invert

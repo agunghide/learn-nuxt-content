@@ -12,13 +12,13 @@ Modul ini membuat instance **`$content`** secara global, artinya kita dapat meng
 Untuk plugin, asyncData, nuxtServerInit dan Middleware, kita dapat mengaksesnya dari **`context.$content`**. [^1]
 
 Contoh untuk mengambil sebuah konten dengan menggunakan method **`$content`** adalah sebgai berikut
-```
+```js
 async asyncData ({ $content, params }) {
    const content = await $content(params.slug).fetch()
 }
 ```
 Kita juga dapat memberikan beberapa argumen
-```
+```js
 $content('articles', params.slug)
 ```
 yang akan diterjemahkan ke **`/articles/${params.slug}`**
